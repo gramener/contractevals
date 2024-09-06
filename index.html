@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contract Evaluation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    .narrative {
+      max-width: 40rem;
+    }
+    #table-container th {
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href=".">Contract Evaluation</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="nav-item dropdown ms-auto" role="group" aria-label="Toggle dark mode" title="Toggle Dark Mode">
+          <button class="dark-theme-toggle btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme (auto)">
+            <i class="bi bi-circle-half"></i> <span class="d-lg-none ms-2">Toggle theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><button class="dropdown-item" data-bs-theme-value="light"><i class="me-2 bi bi-sun-fill"></i> Light</button></li>
+            <li><button class="dropdown-item" data-bs-theme-value="dark"><i class="me-2 bi bi-moon-stars-fill"></i> Dark</button></li>
+            <li><button class="dropdown-item" data-bs-theme-value="auto"><i class="me-2 bi bi-circle-half"></i> Auto</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <h1 class="display-1 my-4 text-center">Contract Evaluation</h1>
+    <h2 class="display-6 text-center">What risks do contracts carry?</h2>
+    <div class="mx-auto my-3 narrative">
+      <p>Legal teams need to ensure that their publishing contracts are correctly reviewed and compliant with legal guidelines, ensuring proper rights assignment, copyright transfers, and adherence to contractual obligations.</p>
+      <p>This process is critical for protecting intellectual property rights, avoiding legal disputes, and ensuring proper licensing and usage of content under its agreements.</p>
+      <p>In this exercise, paralegals reviewed hundreds of contracts to:</p>
+      <ol>
+        <li>Verify completeness and <strongs>signatures</strongs> of all required parties.</li>
+        <li>Assess the type and scope of <strong>rights granted</strong> to the publisher.</li>
+        <li>Confirm if the publisher has received <strong>full copyrigh and necessary rights</strong>.</li>
+        <li>Review <strong>amendments</strong> for risks, representations, warranties, and indemnities.</li>
+        <li>Based on the above, provide a <strong>licensing recommendation</strong> along with a <strong>rationale</strong>.</li>
+      </ol>
+    </div>
+
+
+    <div class="mx-auto my-4 narrative">
+      <h3>Upload Contract Review Data</h3>
+      <p>Please upload the CSV file with the paralegal review. Contact <a href="mailto:priyanka.raju@straive.com">Priyanka Raju</a> for queries.</p>
+      <input type="file" class="form-control" id="file" name="file" accept=".csv" aria-label="Upload">
+      <div id="upload-feedback" class="mt-2"></div>
+    </div>
+
+    <div id="table-container"></div>
+  </div>
+
+  <footer class="my-5 vh-100 d-flex align-items-center justify-content-center">
+    <h1 class="display-4">Designed by <a href="https://gramener.com/" class="text-reset link-offset-3 link-underline link-underline-opacity-25">Gramener</a></h1>
+  </footer>
+
+  <div class="modal" tabindex="-1" id="contract-modal">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contract-modal-title">Contract Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="contract-modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@gramex/ui@0.3/dist/dark-theme.js" type="module"></script>
+  <script src="script.js" type="module"></script>
+</body>
+
+</html>
