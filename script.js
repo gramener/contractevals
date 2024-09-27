@@ -1,5 +1,4 @@
 import { html, render } from "https://cdn.jsdelivr.net/npm/lit-html@2.7.5/lit-html.min.js";
-import { unsafeHTML } from "https://cdn.jsdelivr.net/npm/lit-html@3/directives/unsafe-html.js";
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 import Fuse from "https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.esm.js";
 
@@ -57,15 +56,6 @@ async function handleFileUpload() {
       "Latest Signing Date",
       "Agreement Date",
       "Parties' Signature",
-      // "Licensing Recommendation",
-      // "Rationale",
-      // 'Type 1 Grant',
-      // 'Type 2 Grant',
-      // 'Type 3 Grant',
-      // "Governing Law",
-      // 'Agreement Term',
-      // "Amendments/Appendices",
-      // "Amendment/Appendix Summary",
       "Rights granted - AI Output",
       "Rights granted - Rationale",
       "Type 1 Grant - AI Output",
@@ -87,7 +77,7 @@ async function handleFileUpload() {
       "Amendments/Appendices - AI Output",
       "Amendments/Appendices - Rationale",
       "Amendment/Appendix Summary - AI Output",
-      // "Amendment/Appendix Summary - Rationale",
+      // uncommenting this cause error "Amendment/Appendix Summary - Rationale",
       "Author/s approvals - AI Output",
       "Author/s approvals - Rationale",
       "Permission Request - AI Output",
@@ -127,9 +117,9 @@ async function handleFileUpload() {
 
       row["Rights Grant"] =
         row['Type 1 Grant'] +
-        "\r\n\r\n" +
+        "\n\n" +
         row['Type 2 Grant'] +
-        "\r\n\r\n" +
+        "\n\n" +
         row['Type 3 Grant'];
 
       row["ISBN"] = row["ISBN"].replace(/^B/, "");
@@ -257,7 +247,6 @@ function renderTable(data) {
 let currentRowIndex = -1;
 
 function showContractDetails(row) {
-  // console.log(row);
   currentRowIndex = filteredData.findIndex((r) => r === row);
   updateModalContent(row);
 }
@@ -345,11 +334,4 @@ function formatString(value) {
     return temp;
   }
   return value || "";
-}
-
-function shorten(text, maxLength) {
-  if (text.length > maxLength) {
-    return text.slice(0, maxLength) + "...";
-  }
-  return text;
 }
